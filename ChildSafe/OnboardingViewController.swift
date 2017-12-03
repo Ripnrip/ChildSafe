@@ -111,11 +111,6 @@ class OnboardingViewController: UIViewController {
         
     }
     
-
-    // select guardians / children
-    // if guardians -> lead to a page to set up family profile / P2: confirmation key
-    // if children -> lead to a page to enter confirmation key
-    
     // view family profile
 
     /*
