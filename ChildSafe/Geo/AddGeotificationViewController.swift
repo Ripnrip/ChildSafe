@@ -60,6 +60,12 @@ class AddGeotificationViewController: UITableViewController {
     let note = noteTextField.text
     let eventType: EventType = (eventTypeSegmentedControl.selectedSegmentIndex == 0) ? .onEntry : .onExit
     delegate?.addGeotificationViewController(controller: self, didAddCoordinate: coordinate, radius: radius, identifier: identifier, note: note!, eventType: eventType)
+    // set radius and the center point for children's geofence data (firebase set value)
+    
+    // assure parents that set up is complete
+    
+    // after adding
+    showAlert(withTitle:"Thank you", message: "Safety check is successfully set up. We will let you know if anything happens.")
   }
 
   @IBAction private func onZoomToCurrentLocation(sender: AnyObject) {

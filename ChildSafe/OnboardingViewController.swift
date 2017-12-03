@@ -51,6 +51,8 @@ class OnboardingViewController: UIViewController {
                 print("the found email is \(email)")
                 self.allEmails.append(email)
             })
+            
+            
         })
         
         isStudent = defaults.bool(forKey: "isStudent" )

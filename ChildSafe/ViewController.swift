@@ -149,8 +149,6 @@ class ViewController: UIViewController, LoginButtonDelegate, UNUserNotificationC
     
     //function is fetching the user data
     func getFBUserDataWithAuthID(authID:String){
-        
-        
         if((FBSDKAccessToken.current()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email,family"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
