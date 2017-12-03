@@ -19,7 +19,8 @@ class ViewController: UIViewController, LoginButtonDelegate {
     var dict : [String : AnyObject] = [:]
     var ref: DatabaseReference!
     var isStudent = true
-    
+    let defaults:UserDefaults = UserDefaults.standard
+
     override func viewWillAppear(_ animated: Bool) {
         
         if FBSDKAccessToken.current() != nil {
@@ -71,6 +72,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
                 }
                 // User is signed in
                 // ...
+                
                 let alertController = UIAlertController(title: "Alert", message: "Are you a student, or a parent?", preferredStyle: .alert)
                 
                 let action1 = UIAlertAction(title: "Student", style: .default) { (action:UIAlertAction) in
@@ -80,6 +82,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
                         let uid = user?.uid
                         else { return }
                     
+                    self.defaults.set(true, forKey: "isStudent")
                     self.getFBUserDataWithAuthID(authID: uid)
                 }
                 
@@ -89,7 +92,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
                     guard let email = user?.email ,
                         let uid = user?.uid
                         else { return }
-                    
+                    self.defaults.set(false, forKey: "isStudent")
                     self.getFBUserDataWithAuthID(authID: uid)
                 }
                 
