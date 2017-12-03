@@ -118,6 +118,7 @@
                         <outlet property="emailTextField" destination="YOu-6X-4vH" id="sWw-Hh-iHq"/>
                         <outlet property="parentView" destination="MX6-Iq-ReH" id="VEc-Ns-tyw"/>
                         <outlet property="studentView" destination="NGq-rP-Drl" id="Onr-ki-iI4"/>
+                        <segue destination="9CC-Hb-6LR" kind="show" identifier="goHome" id="U2Q-4N-hjz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Nl-aw-WLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,7 +207,11 @@
                                 <action selector="zoomToCurrentLocationWithSender:" destination="dVd-r8-1CF" id="OhN-ng-GeG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hlz-mf-17K"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hlz-mf-17K">
+                            <connections>
+                                <segue destination="WNe-ln-Eiy" kind="show" id="Etn-Q9-Pfw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Zkc-It-zqz" id="EBO-cv-YbQ"/>
