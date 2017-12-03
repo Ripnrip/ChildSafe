@@ -45,7 +45,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
             }
             
             let loginButton = LoginButton(readPermissions: [.publicProfile, .email ])
-            loginButton.center = view.center
+            loginButton.frame = CGRect(x: 130, y: 400, width: 100, height: 50)
             loginButton.delegate = self
             view.addSubview(loginButton)
             
@@ -149,6 +149,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        
         //
     }
 
