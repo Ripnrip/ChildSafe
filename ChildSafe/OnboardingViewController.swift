@@ -37,8 +37,8 @@ class OnboardingViewController: UIViewController {
 //        tapGesture.cancelsTouchesInView = true
 //        view.addGestureRecognizer(tapGesture)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(OnboardingViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(OnboardingViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(OnboardingViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(OnboardingViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         
         ref = Database.database().reference()
@@ -78,36 +78,12 @@ class OnboardingViewController: UIViewController {
     
 
     
-
-    
-    // use the key to lead to the next screen
-    @IBAction func segmentValueChanged(_ sender: Any) {
-        guard let control = sender as? UISegmentedControl else { return }
-        switch control.selectedSegmentIndex {
-        case 0:
-            self.studentView.isHidden = false
-            self.parentView.isHidden = true
-        case 1:
-            self.studentView.isHidden = true
-            self.parentView.isHidden = false
-        default:
-            //
-            break
-        }
-    }
-    @IBAction  func setValue(sender: UIButton) {
-        switch sender {
-        case guardianButton:
-            // TODO: generate confirmation key
-            print("parent")
-        case childrenButton:
-            // TODO: enter confirmation key
-            print("children")
-        default:
-            break
-        }
+    @IBAction func registerChild(_ sender: Any) {
+        //search and set child by email address
+        
         
     }
+    
     
 
     // select guardians / children
