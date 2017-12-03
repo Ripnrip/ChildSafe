@@ -233,7 +233,7 @@
             </objects>
             <point key="canvasLocation" x="681" y="504"/>
         </scene>
-        <!--Add Geotification-->
+        <!--Add a Safe Spot-->
         <scene sceneID="J7I-jj-W3g">
             <objects>
                 <tableViewController id="rOP-hg-v5W" customClass="AddGeotificationViewController" customModule="ChildSafe" customModuleProvider="target" sceneMemberID="viewController">
@@ -369,7 +369,7 @@
                             <outlet property="delegate" destination="rOP-hg-v5W" id="Fxb-60-LhA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Geotification" id="YxW-ks-OHk">
+                    <navigationItem key="navigationItem" title="Add a Safe Spot" id="YxW-ks-OHk">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="VzX-wV-U7h">
                             <connections>
                                 <action selector="onCancelWithSender:" destination="rOP-hg-v5W" id="XAd-Hu-a7G"/>

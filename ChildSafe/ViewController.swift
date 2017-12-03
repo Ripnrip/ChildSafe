@@ -105,10 +105,10 @@ class ViewController: UIViewController, LoginButtonDelegate, UNUserNotificationC
                 // User is signed in
                 // ...
                 
-                let alertController = UIAlertController(title: "Alert", message: "Are you a student, or a parent?", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Alert", message: "Are you a child or parent?", preferredStyle: .alert)
                 
-                let action1 = UIAlertAction(title: "Student", style: .default) { (action:UIAlertAction) in
-                    print("You've pressed Student");
+                let action1 = UIAlertAction(title: "Child", style: .default) { (action:UIAlertAction) in
+                    print("You've pressed Child");
                     self.isStudent = true
                     guard let email = user?.email ,
                         let uid = user?.uid
