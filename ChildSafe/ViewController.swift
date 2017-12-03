@@ -12,8 +12,9 @@ import FBSDKLoginKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import UserNotifications
 
-class ViewController: UIViewController, LoginButtonDelegate {
+class ViewController: UIViewController, LoginButtonDelegate, UNUserNotificationCenterDelegate {
     
     
     var dict : [String : AnyObject] = [:]
@@ -37,6 +38,37 @@ class ViewController: UIViewController, LoginButtonDelegate {
         
         ref = Database.database().reference()
 
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if (granted) {
+                print("granted swift")
+            }else {
+                print(error?.localizedDescription as Any)
+            }
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "Attention", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "Your child is out of the safety zone!",
+                                                                arguments: nil)
+        
+        content.sound = UNNotificationSound.default()
+        
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval:TimeInterval(5)  , repeats: false)
+        
+        // Create the request object.
+        let request = UNNotificationRequest(identifier: "MorningAlarm", content: content, trigger: trigger)
+        
+        // Schedule the request.
+        center.add(request) { (error : Error?) in
+            if let theError = error {
+                print(theError.localizedDescription)
+            }
+        }
+        
+        
         if (FBSDKAccessToken.current() != nil )  {
             // User is logged in, do work such as go to next view controller.
             DispatchQueue.main.async {
@@ -151,6 +183,25 @@ class ViewController: UIViewController, LoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
         
         //
+    }
+    
+    // UNUserNotificationCenterDelegates
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print(notification.request.content.title)
+        
+        // Play a sound.
+        completionHandler(UNNotificationPresentationOptions.sound)
+    }
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(response.notification.request.content.title)
+        
     }
 
 
