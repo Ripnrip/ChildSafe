@@ -91,7 +91,21 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func registerChild(_ sender: Any) {
         //search and set child by email address
-
+        guard let email = emailTextField.text else {return }
+        if (allEmails.contains(email)) {
+            print("Entered email in database")
+            DispatchQueue.main.async {
+                print("Async1")
+                self.performSegue(withIdentifier: "goHome", sender: nil)
+            }
+            // match students with parents
+        } else {
+            let alertController = UIAlertController(title: "Alert", message: "The email is either invalid or already registered.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Okay", style: .default)
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
         
     }
     
