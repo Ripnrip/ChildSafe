@@ -23,6 +23,8 @@ class OnboardingViewController: UIViewController {
     let defaults:UserDefaults = UserDefaults.standard
     var isStudent = false
     
+    var allEmails = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,22 +34,31 @@ class OnboardingViewController: UIViewController {
             self.emailAddressLabel.text = email
         }
         
-        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: Selector(("hideKeyboard")))
-//        tapGesture.cancelsTouchesInView = true
-//        view.addGestureRecognizer(tapGesture)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(OnboardingViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(OnboardingViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        
         ref = Database.database().reference()
+        
+        ref.child("users").queryOrdered(byChild: "email").observe(.value, with: { snapshot in
+            print("all the data in the snapshot is \(snapshot)")
+            //let dict = snapshot as [String:Any]
+            guard let myData = snapshot.value as? [String: Any] else { print("error converting dict in onboarding to get emails"); return }
+            
+            myData.forEach({ (child) in
+                //let email = child["email"]
+                print("the child iterated is \(child.value)")
+                guard let info = child.value as? [String:Any],
+                let email = info["email"] as? String
+                else { return }
+                
+                print("the found email is \(email)")
+                self.allEmails.append(email)
+            })
+        })
         
         isStudent = defaults.bool(forKey: "isStudent" )
         
         if isStudent {
             self.studentView.isHidden = false
             self.parentView.isHidden = true
+            
         }else{
             self.studentView.isHidden = true
             self.parentView.isHidden = false
@@ -80,7 +91,7 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func registerChild(_ sender: Any) {
         //search and set child by email address
-        
+
         
     }
     
@@ -90,16 +101,6 @@ class OnboardingViewController: UIViewController {
     // if guardians -> lead to a page to set up family profile / P2: confirmation key
     // if children -> lead to a page to enter confirmation key
     
-    // view family profile
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

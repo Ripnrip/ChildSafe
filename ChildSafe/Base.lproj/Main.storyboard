@@ -53,14 +53,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsd-HV-xk2">
-                                        <rect key="frame" x="169" y="213" width="37" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <action selector="registerChild:" destination="4y0-Yk-O3L" eventType="touchUpInside" id="Oe9-nf-Lp9"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -75,9 +67,8 @@
                                     <constraint firstItem="i9n-pE-89C" firstAttribute="leading" secondItem="NGq-rP-Drl" secondAttribute="leading" constant="31" id="wHk-RO-uTR"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MX6-Iq-ReH">
-                                <rect key="frame" x="13" y="85" width="349" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MX6-Iq-ReH">
+                                <rect key="frame" x="13" y="85" width="349" height="119"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter your child's email address:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryI-UA-8Rc">
                                         <rect key="frame" x="-10" y="0.0" width="359" height="41"/>
@@ -86,22 +77,39 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOu-6X-4vH">
-                                        <rect key="frame" x="-2" y="49" width="343" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOu-6X-4vH">
+                                        <rect key="frame" x="8" y="35" width="333" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsd-HV-xk2">
+                                        <rect key="frame" x="165.5" y="71" width="37" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="registerChild:" destination="4y0-Yk-O3L" eventType="touchUpInside" id="Oe9-nf-Lp9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="YOu-6X-4vH" firstAttribute="leading" secondItem="MX6-Iq-ReH" secondAttribute="leading" constant="8" id="3CA-GH-agG"/>
+                                    <constraint firstItem="YOu-6X-4vH" firstAttribute="top" secondItem="MX6-Iq-ReH" secondAttribute="top" constant="35" id="7Cc-hi-GII"/>
+                                    <constraint firstItem="Qsd-HV-xk2" firstAttribute="centerX" secondItem="MX6-Iq-ReH" secondAttribute="centerX" constant="9.5" id="Vzq-V2-CbM"/>
+                                    <constraint firstItem="Qsd-HV-xk2" firstAttribute="top" secondItem="YOu-6X-4vH" secondAttribute="bottom" constant="6" id="jPZ-YL-53g"/>
+                                    <constraint firstAttribute="trailing" secondItem="YOu-6X-4vH" secondAttribute="trailing" constant="8" id="nGS-5m-j58"/>
+                                    <constraint firstAttribute="height" constant="119" id="pfX-tY-2fV"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NGq-rP-Drl" firstAttribute="leading" secondItem="Ven-Sd-ozJ" secondAttribute="leading" id="8a2-B4-WfY"/>
+                            <constraint firstItem="MX6-Iq-ReH" firstAttribute="top" secondItem="Ven-Sd-ozJ" secondAttribute="top" constant="65" id="NPF-0s-FNQ"/>
                             <constraint firstItem="NGq-rP-Drl" firstAttribute="trailing" secondItem="Ven-Sd-ozJ" secondAttribute="trailing" id="agH-81-DNK"/>
+                            <constraint firstItem="MX6-Iq-ReH" firstAttribute="leading" secondItem="Ven-Sd-ozJ" secondAttribute="leading" constant="13" id="j35-Lk-IXf"/>
                             <constraint firstItem="NGq-rP-Drl" firstAttribute="centerY" secondItem="FDD-ll-10b" secondAttribute="centerY" id="s9p-dp-FDa"/>
+                            <constraint firstItem="Ven-Sd-ozJ" firstAttribute="trailing" secondItem="MX6-Iq-ReH" secondAttribute="trailing" constant="13" id="yJ3-ev-ZPV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ven-Sd-ozJ"/>
                     </view>
@@ -392,7 +400,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGL-12-ByY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="504"/>
+            <point key="canvasLocation" x="1366" y="629"/>
         </scene>
     </scenes>
     <resources>

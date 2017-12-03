@@ -123,8 +123,8 @@ class ViewController: UIViewController, LoginButtonDelegate {
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email,family"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     self.dict = result as! [String : AnyObject]
-                    print(result!)
-                    print(self.dict)
+                    //print(result!)
+                    //print(self.dict)
                     //go to next page
                     let name = self.dict["name"]
                     let email = self.dict["email"]
@@ -133,7 +133,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
                     guard let imageURL = ((self.dict["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String else {return}
                     
                     let userData = ["name": name,
-                                    "email ": email,
+                                    "email": email,
                                     "fbID":fbID,
                                     "imageURL":imageURL,
                                     "isStudent":isStudent] as [String : Any]
