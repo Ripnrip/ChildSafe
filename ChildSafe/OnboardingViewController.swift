@@ -20,7 +20,9 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     
     var ref: DatabaseReference!
-
+    let defaults:UserDefaults = UserDefaults.standard
+    var isStudent = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +31,7 @@ class OnboardingViewController: UIViewController {
             guard let email = Auth.auth().currentUser?.email else { return }
             self.emailAddressLabel.text = email
         }
+        
         
 //        let tapGesture = UITapGestureRecognizer(target: self, action: Selector(("hideKeyboard")))
 //        tapGesture.cancelsTouchesInView = true
@@ -39,6 +42,16 @@ class OnboardingViewController: UIViewController {
         
         
         ref = Database.database().reference()
+        
+        isStudent = defaults.bool(forKey: "isStudent" )
+        
+        if isStudent {
+            self.studentView.isHidden = false
+            self.parentView.isHidden = true
+        }else{
+            self.studentView.isHidden = true
+            self.parentView.isHidden = false
+        }
         
     }
 
