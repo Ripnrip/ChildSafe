@@ -15,6 +15,7 @@
 		8C028F121FD3671A00970D82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C028F101FD3671A00970D82 /* LaunchScreen.storyboard */; };
 		8C55500F1FD374BD00997F30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C55500E1FD374BD00997F30 /* GoogleService-Info.plist */; };
 		8C5550111FD3761400997F30 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5550101FD3761400997F30 /* OnboardingViewController.swift */; };
+		902907651FD3A05F00A2AE99 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902907641FD3A05F00A2AE99 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		8C028F131FD3671A00970D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C55500E1FD374BD00997F30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C5550101FD3761400997F30 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		902907641FD3A05F00A2AE99 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		902907661FD3A0C200A2AE99 /* ChildSafe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChildSafe.entitlements; sourceTree = "<group>"; };
 		EF5025470B8A6915198204B0 /* Pods_ChildSafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChildSafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				902907651FD3A05F00A2AE99 /* MapKit.framework in Frameworks */,
 				2F1A6C3B0282539A04F40BD6 /* Pods_ChildSafe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +69,7 @@
 		8C028F061FD3671A00970D82 /* ChildSafe */ = {
 			isa = PBXGroup;
 			children = (
+				902907661FD3A0C200A2AE99 /* ChildSafe.entitlements */,
 				8C028F071FD3671A00970D82 /* AppDelegate.swift */,
 				8C028F091FD3671A00970D82 /* ViewController.swift */,
 				8C5550101FD3761400997F30 /* OnboardingViewController.swift */,
@@ -80,6 +85,7 @@
 		BC4252E2D77E667864AA439B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				902907641FD3A05F00A2AE99 /* MapKit.framework */,
 				EF5025470B8A6915198204B0 /* Pods_ChildSafe.framework */,
 			);
 			name = Frameworks;
@@ -130,6 +136,20 @@
 					8C028F031FD3671A00970D82 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -384,6 +404,7 @@
 			baseConfigurationReference = 43ECCD09C065A8E8369D575B /* Pods-ChildSafe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChildSafe/ChildSafe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Y7NBCKHJP;
 				INFOPLIST_FILE = ChildSafe/Info.plist;
@@ -400,6 +421,7 @@
 			baseConfigurationReference = 3265C888047EB518D39FB761 /* Pods-ChildSafe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChildSafe/ChildSafe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Y7NBCKHJP;
 				INFOPLIST_FILE = ChildSafe/Info.plist;
