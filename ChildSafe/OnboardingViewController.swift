@@ -48,7 +48,9 @@ class OnboardingViewController: UIViewController {
         if isStudent {
             self.studentView.isHidden = false
             self.parentView.isHidden = true
+            self.emailTextField.isHidden = true
         }else{
+            self.emailTextField.isHidden = false
             self.studentView.isHidden = true
             self.parentView.isHidden = false
         }
